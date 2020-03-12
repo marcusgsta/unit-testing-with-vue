@@ -1,0 +1,45 @@
+<template>
+    <div>
+        <ul>
+            <li :class="{ active: star <= initialGrade }" :key="star" v-for="star in maxStars" class="star">*</li>
+        </ul>
+        <div class="summary">{{ initialGrade }} of {{ maxStars }}</div>
+    </div>
+</template>    
+
+<script>
+export default {
+    props: {
+        maxStars: {
+            type: Number
+        },
+        initialGrade: {
+            type: Number
+        }
+    }
+}
+</script>
+
+<style scoped>
+    * {
+        padding:0;
+        margin:0;
+    }
+    ul {
+        display:flex;
+        justify-content: center;
+        flex-flow:row wrap;
+        font-size: 4rem;
+    }
+    li {
+        list-style: none;
+    }
+    li.star {
+        color: blue;
+    }
+    li.star.active {
+        color: yellow;
+    }
+
+
+</style>
